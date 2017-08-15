@@ -96,6 +96,11 @@ private:
 	}
 
 public:
+	/*
+	 * TODO: Using a port as argument to start the server is a bad design choice:
+	 * - It does not let you choose an interface
+	 * - It is inconsistent with other backends, since port may only exist for tcp and udp
+	 */
 
 	CracenServer(Port port);
 	void stop();

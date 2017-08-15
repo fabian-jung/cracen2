@@ -19,11 +19,10 @@ private:
 
 public:
 
-	CracenClient(Endpoint serverEndpoint) {
+	CracenClient(Endpoint serverEndpoint, backend::RoleId roleId) {
 		communicator.connect(serverEndpoint);
 		communicator.send(backend::Register());
 	}
-
 
 }; // End of class CracenClient
 
