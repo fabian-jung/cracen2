@@ -7,7 +7,6 @@ namespace cracen2 {
 
 namespace backend {
 
-template <class Endpoint>
 struct Register {};
 
 struct RoleGraphRequest{};
@@ -36,7 +35,7 @@ struct ServerClose {
 
 template <class Endpoint>
 using ServerTagList = std::tuple<
-	backend::Register<Endpoint>,
+	backend::Register,
 	backend::RoleGraphRequest,
 	backend::AddRoleConnection,
 	backend::RolesComplete,

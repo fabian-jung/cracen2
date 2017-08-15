@@ -17,11 +17,13 @@ namespace cracen2 {
 template <class SocketImplementation>
 class CracenServer {
 public:
+
 	using TagList = typename backend::ServerTagList<typename SocketImplementation::Endpoint>;
 	using Communicator = network::Communicator<SocketImplementation, TagList>;
 	using Endpoint = typename Communicator::Endpoint;
 	using Port = typename Communicator::Port;
 	using Visitor = typename Communicator::Visitor;
+
 
 	using GraphConnectionType = boost::bimap<
 		boost::bimaps::multiset_of<backend::RoleId>,
@@ -116,7 +118,7 @@ void CracenServer<SocketImplementation>::run(CracenServer::Port port) {
 	std::vector<Endpoint> registerQueue;
 
 	Visitor visitor(
-		[this, &communicator, &registerQueue](backend::Register<Endpoint>){
+		[this, &communicator, &registerQueue](backend::Register){
 			//std::cout << "Server: Received register, server state = " << static_cast<unsigned int>(state) << std::endl;
 			switch(state) {
 				case State::ContextUninitialised:
