@@ -4,7 +4,7 @@
 #  CRACEN2_FOUND - system has cracen2
 #  cracen2 - Defined target
 
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8.0)
 
 project(cracen2)
 
