@@ -159,7 +159,6 @@ public:
 		serverCommunicator.send(backend::Disembody<Endpoint>{ dataCommunicator.getLocalEndpoint() });
 	};
 
-
 	void printStatus() const {
 		std::stringstream status;
 		status

@@ -41,6 +41,7 @@ struct CracenClientTest {
 	TestSuite testSuite;
 
 	cracen2::CracenServer<SocketImplementation> server;
+
 	std::vector<
 		std::unique_ptr<
 			CracenClient
@@ -74,8 +75,6 @@ struct CracenClientTest {
 				);
 			}
 		}
-
-
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 		std::cout << "All Clients running." << std::endl;
@@ -112,7 +111,6 @@ struct CracenClientTest {
 		for(auto& clientPtr : clients) {
 			clientPtr->stop();
 		}
-		server.stop();
 	}
 
 }; // End of class CracenServerTest
@@ -124,4 +122,5 @@ int main() {
 	//CracenClientTest<AsioStreamingSocket> tcpClientTest(testSuite);
 	CracenClientTest<AsioDatagramSocket> udpClientTest(testSuite);
 
+	return 0;
 }
